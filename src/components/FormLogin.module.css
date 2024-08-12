@@ -1,0 +1,34 @@
+input {
+    width: 100%;
+    padding: 1.4rem 1rem 0.5rem;
+    font-size: 15px;
+    margin-top: 25px;
+    background-color: RGBA(19, 19, 18, 0.75);
+    color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+Remenber input{
+    width: 2rem;
+}
+
+Form button {
+    margin: 15px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgb(225, 9, 20);
+}
+
+.cod_security {
+    background-color: #333333;
+}
+Form button:hover {
+    background-color: rgba(225, 9, 20, 0.87);
+}
