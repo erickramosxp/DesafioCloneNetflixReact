@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import './FormLogin.module.css';
+import './FormLogin.css';
 import IconError from './IconError';
 import { useState } from 'react';
 
