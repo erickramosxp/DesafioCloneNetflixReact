@@ -2,6 +2,8 @@ import styled from "styled-components";
 import CatalogNetflix from "./CatalogNetflix";
 import { Helmet } from 'react-helmet';
 import BrowseFooter from './BrowseFooter';
+import { usePopup } from "./PopupContext";
+import PopupDetails from "./PopupDetails";
 
 const Container = styled.div`
     padding-top: 60px;
@@ -75,38 +77,41 @@ const Shandow = styled.div`
 
 const BrowseMain = () => {
 
+    const {isPopupOpen, popupContent, closePopup, openPopup} = usePopup();
+
     return (
-        <Container>
-            <Helmet>
-                <title>Originais Netflix | Site oficial da Netflix</title>
-                <link
-                rel="stylesheet"
-                type="text/css"
-                charset="UTF-8"
-                href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-                />
-                <link
-                rel="stylesheet"
-                type="text/css"
-                href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-                />
-            </Helmet>
-            <div className="first_item">
-                <div>
-                    <h1>Só na Netflix</h1>
-                    <p>Na Netflix você acha conteúdo original incrível, que não pode ser encontrado em nenhum outro lugar. Filmes, séries, especiais... Todos feitos especialmente para você!</p>
+            <Container>
+                <Helmet>
+                    <title>Originais Netflix | Site oficial da Netflix</title>
+                    <link
+                    rel="stylesheet"
+                    type="text/css"
+                    charset="UTF-8"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                    />
+                    <link
+                    rel="stylesheet"
+                    type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                    />
+                </Helmet>
+                <div className="first_item">
+                    <div>
+                        <h1>Só na Netflix</h1>
+                        <p>Na Netflix você acha conteúdo original incrível, que não pode ser encontrado em nenhum outro lugar. Filmes, séries, especiais... Todos feitos especialmente para você!</p>
+                    </div>
                 </div>
-            </div>
-            <CatalogNetflix />
-            <Shandow />
-            <Gradie>
-                <div>
-                    <h2>Tem muito mais esperando por você.</h2>
-                    <p>A Netflix tem um grande catálogo de filmes, documentários, séries, originais Netflix premiados e muito mais. Assista o quanto quiser, quando quiser.</p>
-                    <button className="acess">Acessar Agora</button>
-                </div>
-            </Gradie>
-        </Container>
+                {isPopupOpen && <PopupDetails />}
+                <CatalogNetflix />
+                <Shandow />
+                <Gradie>
+                    <div>
+                        <h2>Tem muito mais esperando por você.</h2>
+                        <p>A Netflix tem um grande catálogo de filmes, documentários, séries, originais Netflix premiados e muito mais. Assista o quanto quiser, quando quiser.</p>
+                        <button className="acess">Acessar Agora</button>
+                    </div>
+                </Gradie>
+            </Container>
     )
 }
 

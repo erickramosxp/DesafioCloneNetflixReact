@@ -4,6 +4,7 @@ const Container = styled.div`
     width: 300px;
     text-align: center;
     margin-top: 15px;
+    cursor: pointer;
     span {
         display: inline-block;
         font-size: 16px;
@@ -16,9 +17,9 @@ const Img = styled.img`
     height: 170px;
 `
 
-const FilmeCard = ({img_url, name}) => {
+const FilmeCard = ({img_url, name, onClick}) => {
     return (
-        <Container>
+        <Container onClick={onClick}>
             <Img src={img_url}/>
             <span>{name}</span>
         </Container>
