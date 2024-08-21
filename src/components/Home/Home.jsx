@@ -5,7 +5,7 @@ import InputEmail from './InputEmail';
 import BannerAssinatura from './BannerAssinatura';
 import BannersBeneficios from './BannersBeneficios';
 import Faq from './Faq';
-import BrowseFooter from '../BrowseFooter';
+import BrowseFooter from '../Browser/BrowseFooter';
 
 const Container = styled.div`
     background-color: black;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const MyFooter = styled.footer`
     display: flex;
     height: 250px;
-    margin-top: 100px;
+    margin-top: 80px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.7),rgb(0, 0, 0) 8%);
 `
 

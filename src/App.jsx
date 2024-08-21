@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
-import Login from './components/Login'
-import BrowseNetflix from './components/BrowseNetflix'
+import Login from './components/Login/Login'
+import BrowseNetflix from './components/Browser/BrowseNetflix'
 import Home from './components/Home/Home'
 
 function App() {
