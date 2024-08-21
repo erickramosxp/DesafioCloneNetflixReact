@@ -4,10 +4,18 @@ import backgroud from './image.png';
 import InputEmail from './InputEmail';
 import BannerAssinatura from './BannerAssinatura';
 import BannersBeneficios from './BannersBeneficios';
+import Faq from './Faq';
+import BrowseFooter from '../BrowseFooter';
 
 const Container = styled.div`
     background-color: black;
     height: 100vh;
+    .zone-email{
+        background-color:  black;
+        .input {
+            width: 80%;
+        }
+    }
 `
 
 const FirstItem = styled.div`
@@ -38,6 +46,17 @@ const Text = styled.div`
     }
 `
 
+const StyledInput = styled(InputEmail)`
+    padding-top: 50px;
+    margin: 0;
+    padding-bottom: 50px;
+    p {
+        width: 60%;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+`
+
 const Error = styled.p`
     
 `
@@ -58,6 +77,13 @@ const Home = () => {
             </FirstItem>
             <BannerAssinatura />
             <BannersBeneficios />
+            <Faq />
+            <div className='zone-email'>
+                <div className='input'>
+                    <StyledInput />
+                </div>
+            </div>
+            <BrowseFooter />
         </Container>
     )
 }

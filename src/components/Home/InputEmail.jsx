@@ -3,15 +3,14 @@ import { SlArrowRight } from "react-icons/sl";
 
 const Container = styled.div`
     flex-direction: column;
-    /* margin: auto;
-    text-align: center; */
+    /* margin: auto; */
+    /*text-align: center; */
     width: 100%;
     p {
-        width: 100%;
+        /* width: 60%; */
+        margin: auto;
         font-size: 22px;
-    } 
-    p , div {
-        margin-top: 15px;
+        color: white;
     }
     div {
         display: flex;
@@ -42,9 +41,9 @@ const Container = styled.div`
 }
 `
 
-const InputEmail = () => {
+const InputEmail = ({className}) => {
     return (
-        <Container>
+        <Container className={`${className}`}>
             <p>Quer assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
             <div>
                 <input type="text" />
