@@ -54,7 +54,38 @@ const CatalogNetflix = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        responsive: [
+            {
+                breakpoint: 1650,
+                settings: {
+                  slidesToShow: 4,
+                  slidesToScroll: 3,
+                }
+              },
+            {
+              breakpoint: 1350,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+              }
+            },
+            {
+              breakpoint: 850,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              }
+            },
+            {
+              breakpoint: 580,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true
+              }
+            }
+          ]
       };
 
     const [catalog, setCatalog] = useState([]);
