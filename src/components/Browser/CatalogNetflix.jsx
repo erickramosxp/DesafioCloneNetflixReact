@@ -139,9 +139,9 @@ const CatalogNetflix = () => {
 
     const {isPopupOpen, popupContent, closePopup, openPopup} = usePopup();
 
-    const handleClick = (id) => {
+    const handleClick = (id, type) => {
         console.log(id);
-        openPopup(id);
+        openPopup(id, type);
     }
 
     return (
@@ -149,61 +149,61 @@ const CatalogNetflix = () => {
             <CarroselContainer>
                 <h3>Descubra suas próximas histórias</h3>
                 <Slider {...settings}>
-                    {catalog && catalog.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {catalog && catalog.map((card) => (<FilmeCard onClick={() => handleClick(card.id, card.media_type)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Séries premiadas</h3>
                 <Slider {...settings}>
-                    {series.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {series.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "tv")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Filmes de ação e aventura</h3>
                 <Slider  {...settings}>
-                    {actionAdventure.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {actionAdventure.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "movie")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Comédias para a TV</h3>
                 <Slider  {...settings}>
-                    {comedy.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {comedy.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "tv")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Séries dramáticas</h3>
                 <Slider  {...settings}>
-                    {dramaSerie.map((card) => (<FilmeCard  onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {dramaSerie.map((card) => (<FilmeCard  onClick={() => handleClick(card.id, "tv")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Séries para maratonar</h3>
                 <Slider  {...settings}>
-                    {topSeries.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {topSeries.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "tv")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Filmes românticos</h3>
                 <Slider  {...settings}>
-                    {romanceMovie.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {romanceMovie.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "movie")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Filmes de comédia</h3>
                 <Slider  {...settings}>
-                    {comedyMovies.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {comedyMovies.map((card) => (<FilmeCard onClick={() => handleClick(card.id, "movie")} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer>
                 <h3>Novidades na Netflix</h3>
                 <Slider  {...settings}>
-                    {treadins.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {treadins.map((card) => (<FilmeCard onClick={() => handleClick(card.id, card.media_type)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
             <CarroselContainer style={{zIndex:1 , position:'relative'}}>
                 <h3>Originals Netflix</h3>
                 <Slider  {...settings}>
-                    {treadins.map((card) => (<FilmeCard onClick={() => handleClick(card.id)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
+                    {treadins.map((card) => (<FilmeCard onClick={() => handleClick(card.id, card.media_type)} key={card.id} img_url={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} name={card.title ? card.title : card.name}/>))}
                 </Slider>
             </CarroselContainer>
         </Container>

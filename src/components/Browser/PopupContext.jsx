@@ -5,19 +5,22 @@ const PopupContext = createContext();
 export const PopupProvider = ({children}) => {
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(null);
+    const [mediaType, setMediaType] = useState('');
 
-    const openPopup = (content) => {
+    const openPopup = (content, media_type) => {
         setPopupContent(content);
+        setMediaType(media_type);
         setPopupOpen(true);
     }
 
     const closePopup = () => {
         setPopupOpen(false);
+        setMediaType('');
         setPopupContent(null);
     }
 
     return (
-        <PopupContext.Provider value={{isPopupOpen, popupContent, openPopup, closePopup}}>
+        <PopupContext.Provider value={{isPopupOpen, mediaType, popupContent, openPopup, closePopup}}>
             {children}
         </PopupContext.Provider>
     )

@@ -23,7 +23,7 @@ const Container = styled.div`
     `
 const Popup = styled.div`
     background-color: #181818;
-    max-width: 700px;
+    max-width: 800px;
     width: 100%;
     padding: 20px;
     border-radius: 5px;
@@ -73,8 +73,7 @@ const ContentDescrition = styled.div`
 `
 
 const PopupDetails = () => {
-    const {popupContent, closePopup} = usePopup();
-    const [value, setValue] = useState(5);
+    const {popupContent, mediaType, closePopup} = usePopup();
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -111,8 +110,11 @@ const PopupDetails = () => {
             );
         }
     }
-    getData(`https://api.themoviedb.org/3/movie/${popupContent}?language=pt-BR`, setData);
-
+    
+    if (mediaType == "movie")
+        getData(`https://api.themoviedb.org/3/movie/${popupContent}?language=pt-BR`, setData);
+    else
+        getData(`https://api.themoviedb.org/3/tv/${popupContent}?language=pt-BR`, setData);
     }, []);
 
     const calculeRate = (number) => {
@@ -132,8 +134,8 @@ const PopupDetails = () => {
                         <img src={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : `https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png`} alt="" />
                     </ContentImg>
                     <ContentDescrition>
-                        <h2><strong>{data.title}</strong></h2>
-                        <p><strong>Data de lançamento:</strong> <span>{data.release_date}</span></p>
+                        <h2><strong>{data.title ? data.title : data.name}</strong></h2>
+                        <p><strong>Data de lançamento:</strong> <span>{data.release_date ? data.release_date : data.first_air_date}</span></p>
                         <p><strong>Genero:</strong>{data.genres && data.genres.map((element) => (<><span> {element.name} </span><i>/</i></>))}</p>
                         <br />
                         <Box component="fieldset" mb={3} borderColor="transparent">
