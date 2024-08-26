@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import CatalogNetflix from "./CatalogNetflix";
 import { Helmet } from 'react-helmet';
-import BrowseFooter from './BrowseFooter';
 import { usePopup } from "./PopupContext";
 import PopupDetails from "./PopupDetails";
+import { IoMdSearch } from "react-icons/io";
+import { useState } from "react";
+import SearchCatalog from "./SearchCatalog";
 
 const Container = styled.div`
     padding-top: 60px;
@@ -74,10 +76,54 @@ const Shandow = styled.div`
     height: 350px;
     background: linear-gradient(180deg,rgba(24, 24, 24, 0.9) 30%, RGB(24, 24, 24) 40%);
 `
+const Input = styled.div`
+    position: relative;
+    max-width: 350px;
+    max-height: 40px;
+    right: 30px;
+    input {
+        display: flex;
+        height: 40px;
+        padding-bottom: 20px;
+    }
+    span {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* height: 40px; */
+        right: 0.8em;
+        cursor: pointer;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+`
 
+
+const SearchStyle = styled(IoMdSearch)`
+    height: 2em;
+`
 const BrowseMain = () => {
 
-    const {isPopupOpen, popupContent, closePopup, openPopup} = usePopup();
+    const {isPopupOpen, popupContent, closePopup, openPopup, searchEnginer, setSearchEnginer} = usePopup();
+    const [search, setSearch] = useState();
+
+    const searchCatalog = () => {
+        setSearchEnginer(search);
+    }
+
+    const setValueofSearch = (event) => {
+        if (event.target.value.length == 0) {
+            setSearchEnginer('');
+        }
+        setSearch(event.target.value)
+    }
+
+    const handleKey = (event) => {
+        if (event.key === 'Enter') {
+            searchCatalog();
+        }
+    }
 
     return (
             <Container>
@@ -100,10 +146,15 @@ const BrowseMain = () => {
                         <h1>Só na Netflix</h1>
                         <p>Na Netflix você acha conteúdo original incrível, que não pode ser encontrado em nenhum outro lugar. Filmes, séries, especiais... Todos feitos especialmente para você!</p>
                     </div>
+                    <Input>
+                        <input onKeyDown={handleKey} onChange={setValueofSearch} placeholder="Buscar..." type="text" />
+                        <span>
+                            <IoMdSearch onClick={searchCatalog} size={30} className="search"/>
+                        </span>
+                    </Input>
                 </div>
                 {isPopupOpen && <PopupDetails />}
-                <CatalogNetflix />
-                <Shandow />
+                {searchEnginer ? <SearchCatalog /> : (<><CatalogNetflix /> <Shandow /></>)}
                 <Gradie>
                     <div>
                         <h2>Tem muito mais esperando por você.</h2>

@@ -109,11 +109,15 @@ const FormLogin = () => {
         }
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
 
     return (
         <Container>
             <h2>Entrar</h2>
-            <Form action="">
+            <Form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="">
                         <input type="text" onBlur={verifyEmail} placeholder='Email ou número de celular'/>

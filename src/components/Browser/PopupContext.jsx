@@ -6,6 +6,7 @@ export const PopupProvider = ({children}) => {
     const [isPopupOpen, setPopupOpen] = useState(false);
     const [popupContent, setPopupContent] = useState(null);
     const [mediaType, setMediaType] = useState('');
+    const [searchEnginer, setSearchEnginer] = useState('');
 
     const openPopup = (content, media_type) => {
         setPopupContent(content);
@@ -20,7 +21,7 @@ export const PopupProvider = ({children}) => {
     }
 
     return (
-        <PopupContext.Provider value={{isPopupOpen, mediaType, popupContent, openPopup, closePopup}}>
+        <PopupContext.Provider value={{isPopupOpen, mediaType, popupContent, searchEnginer, openPopup, closePopup, setSearchEnginer}}>
             {children}
         </PopupContext.Provider>
     )

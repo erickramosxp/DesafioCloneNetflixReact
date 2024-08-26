@@ -49,6 +49,7 @@ const HeaderHome = () => {
             <div className='header'>
                 <ResizedLogo />
                 <div className='buttons'>
+                    <Link to="/browse"><button>Buscar filmes e séries</button></Link>
                     <select name="" id="">
                                     <option value="Português">Português</option>
                                     <option value="English">English</option>

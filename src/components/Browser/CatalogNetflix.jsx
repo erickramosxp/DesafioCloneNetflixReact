@@ -109,7 +109,6 @@ const CatalogNetflix = () => {
                     }
                 };
                 const response = await axios.get(`${url}`, config);
-                console.log(response.data.results);
                 if (response.data.results.length == 0) {
                     setFunction([
                         {
