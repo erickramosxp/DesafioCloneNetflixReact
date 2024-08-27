@@ -48,7 +48,7 @@ Você pode acessar a aplicação hospedada no Vercel através deste link: [Desaf
    ```
 6. Execute a aplicação:
    ```bash
-   npm start
+   npm run dev
    ```
 
 
