@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
     width: 300px;
     text-align: center;
+    margin: auto;
     margin-top: 15px;
     cursor: pointer;
     span {

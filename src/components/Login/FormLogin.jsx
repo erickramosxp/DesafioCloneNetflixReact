@@ -155,7 +155,7 @@ const FormLogin = () => {
                     </label>
                 </Remenber>
                 <p>Novo por aqui? <a href="#">Assine agora.</a></p>
-                <span className='inform'>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="">Saiba mais.</a></span>
+                <span className='inform'>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="#">Saiba mais.</a></span>
             </footer>
         </Container>
     );

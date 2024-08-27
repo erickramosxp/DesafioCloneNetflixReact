@@ -32,6 +32,15 @@ const Container = styled.div`
         margin-top: 5px;
         font-size: 18px;
     }
+    .first_item {
+        div {
+            @media (max-width: 600px) {
+                top: 0;
+                justify-content: start;
+                padding-top: 20px;
+            }
+        }
+    }
 `
 
 const Gradie = styled.div`
@@ -96,6 +105,19 @@ const Input = styled.div`
         cursor: pointer;
         top: 50%;
         transform: translateY(-50%);
+    }
+    @media (max-width: 600px) {
+        display: block;
+        margin-top: 150px;
+        input {
+            width: 100%;
+        }
+        span {
+            position: absolute;
+            right: 0.8em;
+            /* top: 50%;
+            transform: translateY(-50%); */
+        }
     }
 `
 

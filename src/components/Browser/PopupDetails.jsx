@@ -6,6 +6,7 @@ import { Rating } from "@mui/material";
 import {Typography} from "@mui/material";
 import {Box} from "@mui/material";
 import axios from "axios";
+import LoadingIcons from 'react-loading-icons';
 
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
@@ -29,6 +30,10 @@ const Popup = styled.div`
     border-radius: 5px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
+    .loading-container {
+        margin: auto;
+        text-align: center;
+    }
 `
 
 const CloseButton = styled.button`
@@ -75,6 +80,7 @@ const ContentDescrition = styled.div`
 const PopupDetails = () => {
     const {popupContent, mediaType, closePopup} = usePopup();
     const [data, setData] = useState({});
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
 
@@ -108,6 +114,8 @@ const PopupDetails = () => {
                     release_date:"N/A"
                 } 
             );
+        } finally {
+            setInterval(() => setLoad(true), 400);
         }
     }
     
@@ -129,6 +137,7 @@ const PopupDetails = () => {
                 <CloseButton onClick={closePopup}> 
                     <AiOutlineClose/>
                 </CloseButton>
+                {load ? 
                 <Content>
                     <ContentImg>
                         <img src={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : `https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png`} alt="" />
@@ -148,7 +157,10 @@ const PopupDetails = () => {
                         </p>
                         <br />
                     </ContentDescrition>
-                </Content>
+                </Content> : 
+                <div className="loading-container">
+                    <LoadingIcons.Oval width="80" height="80" />
+                </div>}
             </Popup>
         </Container>
     )
